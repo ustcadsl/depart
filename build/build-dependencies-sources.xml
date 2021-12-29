@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maven-dependencies" default="init-dependencies">
+<target name="init-dependencies">
+    <echo level="info" message="Loading dependency paths from file: /home/distkv/zq/apache-depart/build/build-dependencies-sources.xml"/>
+    <property name="junit:junit:jar" value="/home/distkv/.m2/repository/junit/junit/4.6/junit-4.6.jar"/>
+    <fileset id="junit:junit:jar" dir="/home/distkv/.m2/repository/junit/junit/4.6">
+      <include name="junit-4.6.jar"/>
+    </fileset>
+    <property name="com.datastax.cassandra:cassandra-driver-core:jar:shaded" value="/home/distkv/.m2/repository/com/datastax/cassandra/cassandra-driver-core/3.0.1/cassandra-driver-core-3.0.1-shaded.jar"/>
+    <fileset id="com.datastax.cassandra:cassandra-driver-core:jar:shaded" dir="/home/distkv/.m2/repository/com/datastax/cassandra/cassandra-driver-core/3.0.1">
+      <include name="cassandra-driver-core-3.0.1-shaded.jar"/>
+    </fileset>
+    <property name="com.google.guava:guava:jar" value="/home/distkv/.m2/repository/com/google/guava/guava/16.0.1/guava-16.0.1.jar"/>
+    <fileset id="com.google.guava:guava:jar" dir="/home/distkv/.m2/repository/com/google/guava/guava/16.0.1">
+      <include name="guava-16.0.1.jar"/>
+    </fileset>
+    <property name="io.dropwizard.metrics:metrics-core:jar" value="/home/distkv/.m2/repository/io/dropwizard/metrics/metrics-core/3.1.2/metrics-core-3.1.2.jar"/>
+    <fileset id="io.dropwizard.metrics:metrics-core:jar" dir="/home/distkv/.m2/repository/io/dropwizard/metrics/metrics-core/3.1.2">
+      <include name="metrics-core-3.1.2.jar"/>
+    </fileset>
+    <property name="org.slf4j:slf4j-api:jar" value="/home/distkv/.m2/repository/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar"/>
+    <fileset id="org.slf4j:slf4j-api:jar" dir="/home/distkv/.m2/repository/org/slf4j/slf4j-api/1.7.12">
+      <include name="slf4j-api-1.7.12.jar"/>
+    </fileset>
+    <property name="io.netty:netty-all:jar" value="/home/distkv/.m2/repository/io/netty/netty-all/4.0.44.Final/netty-all-4.0.44.Final.jar"/>
+    <fileset id="io.netty:netty-all:jar" dir="/home/distkv/.m2/repository/io/netty/netty-all/4.0.44.Final">
+      <include name="netty-all-4.0.44.Final.jar"/>
+    </fileset>
+    <property name="org.eclipse.jdt.core.compiler:ecj:jar" value="/home/distkv/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar"/>
+    <fileset id="org.eclipse.jdt.core.compiler:ecj:jar" dir="/home/distkv/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2">
+      <include name="ecj-4.4.2.jar"/>
+    </fileset>
+    <property name="org.caffinitas.ohc:ohc-core:jar" value="/home/distkv/.m2/repository/org/caffinitas/ohc/ohc-core/0.4.4/ohc-core-0.4.4.jar"/>
+    <fileset id="org.caffinitas.ohc:ohc-core:jar" dir="/home/distkv/.m2/repository/org/caffinitas/ohc/ohc-core/0.4.4">
+      <include name="ohc-core-0.4.4.jar"/>
+    </fileset>
+    <property name="net.java.dev.jna:jna:jar" value="/home/distkv/.m2/repository/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar"/>
+    <fileset id="net.java.dev.jna:jna:jar" dir="/home/distkv/.m2/repository/net/java/dev/jna/jna/4.1.0">
+      <include name="jna-4.1.0.jar"/>
+    </fileset>
+    <property name="org.openjdk.jmh:jmh-core:jar" value="/home/distkv/.m2/repository/org/openjdk/jmh/jmh-core/1.21/jmh-core-1.21.jar"/>
+    <fileset id="org.openjdk.jmh:jmh-core:jar" dir="/home/distkv/.m2/repository/org/openjdk/jmh/jmh-core/1.21">
+      <include name="jmh-core-1.21.jar"/>
+    </fileset>
+    <property name="net.sf.jopt-simple:jopt-simple:jar" value="/home/distkv/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar"/>
+    <fileset id="net.sf.jopt-simple:jopt-simple:jar" dir="/home/distkv/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6">
+      <include name="jopt-simple-4.6.jar"/>
+    </fileset>
+    <property name="org.apache.commons:commons-math3:jar" value="/home/distkv/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar"/>
+    <fileset id="org.apache.commons:commons-math3:jar" dir="/home/distkv/.m2/repository/org/apache/commons/commons-math3/3.2">
+      <include name="commons-math3-3.2.jar"/>
+    </fileset>
+    <property name="org.openjdk.jmh:jmh-generator-annprocess:jar" value="/home/distkv/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.21/jmh-generator-annprocess-1.21.jar"/>
+    <fileset id="org.openjdk.jmh:jmh-generator-annprocess:jar" dir="/home/distkv/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.21">
+      <include name="jmh-generator-annprocess-1.21.jar"/>
+    </fileset>
+    <property name="net.ju-n.compile-command-annotations:compile-command-annotations:jar" value="/home/distkv/.m2/repository/net/ju-n/compile-command-annotations/compile-command-annotations/1.2.0/compile-command-annotations-1.2.0.jar"/>
+    <fileset id="net.ju-n.compile-command-annotations:compile-command-annotations:jar" dir="/home/distkv/.m2/repository/net/ju-n/compile-command-annotations/compile-command-annotations/1.2.0">
+      <include name="compile-command-annotations-1.2.0.jar"/>
+    </fileset>
+    <property name="org.apache.ant:ant-junit:jar" value="/home/distkv/.m2/repository/org/apache/ant/ant-junit/1.9.4/ant-junit-1.9.4.jar"/>
+    <fileset id="org.apache.ant:ant-junit:jar" dir="/home/distkv/.m2/repository/org/apache/ant/ant-junit/1.9.4">
+      <include name="ant-junit-1.9.4.jar"/>
+    </fileset>
+    <property name="org.apache.ant:ant:jar" value="/home/distkv/.m2/repository/org/apache/ant/ant/1.9.4/ant-1.9.4.jar"/>
+    <fileset id="org.apache.ant:ant:jar" dir="/home/distkv/.m2/repository/org/apache/ant/ant/1.9.4">
+      <include name="ant-1.9.4.jar"/>
+    </fileset>
+    <property name="org.apache.ant:ant-launcher:jar" value="/home/distkv/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar"/>
+    <fileset id="org.apache.ant:ant-launcher:jar" dir="/home/distkv/.m2/repository/org/apache/ant/ant-launcher/1.9.4">
+      <include name="ant-launcher-1.9.4.jar"/>
+    </fileset>
+    <fileset id="build-dependency-sources" dir="/home/distkv/.m2/repository">
+      <include name="com/datastax/cassandra/cassandra-driver-core/3.0.1/cassandra-driver-core-3.0.1-sources.jar"/>
+      <include name="com/google/guava/guava/16.0.1/guava-16.0.1-sources.jar"/>
+      <include name="io/dropwizard/metrics/metrics-core/3.1.2/metrics-core-3.1.2-sources.jar"/>
+      <include name="io/netty/netty-all/4.0.44.Final/netty-all-4.0.44.Final-sources.jar"/>
+      <include name="junit/junit/4.6/junit-4.6-sources.jar"/>
+      <include name="net/java/dev/jna/jna/4.1.0/jna-4.1.0-sources.jar"/>
+      <include name="net/ju-n/compile-command-annotations/compile-command-annotations/1.2.0/compile-command-annotations-1.2.0-sources.jar"/>
+      <include name="net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6-sources.jar"/>
+      <include name="org/apache/ant/ant-junit/1.9.4/ant-junit-1.9.4-sources.jar"/>
+      <include name="org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4-sources.jar"/>
+      <include name="org/apache/ant/ant/1.9.4/ant-1.9.4-sources.jar"/>
+      <include name="org/apache/commons/commons-math3/3.2/commons-math3-3.2-sources.jar"/>
+      <include name="org/caffinitas/ohc/ohc-core/0.4.4/ohc-core-0.4.4-sources.jar"/>
+      <include name="org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2-sources.jar"/>
+      <include name="org/openjdk/jmh/jmh-core/1.21/jmh-core-1.21-sources.jar"/>
+      <include name="org/openjdk/jmh/jmh-generator-annprocess/1.21/jmh-generator-annprocess-1.21-sources.jar"/>
+      <include name="org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12-sources.jar"/>
+    </fileset>
+  </target>
+</project>
