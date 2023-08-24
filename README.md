@@ -35,16 +35,16 @@
 `$ git clone --recursive https://github.com/brianfrankcooper/YCSB.git`
 
 * Compile the Cassandra package of YCSB  (Note that the maven environment need to be first installed)  
-`$ mvn -pl com.yahoo.ycsb:cassandra-binding -am clean package`
+`$ mvn -pl site.ycsb:cassandra-binding -am clean package`
 
-* Using YCSB to generate workloads  
-`$ ./bin/ycsb load cassandra-cql -P workloads/workloadt  -p hosts=$node IP$ -threads $N$ ...`  
-`$ ./bin/ycsb run cassandra-cql -P workloads/workloadt2  -p hosts=$node IP$ -threads $N$ ...`
 
 
 ## 6. Testing the DEPART Prototype
 * Start the Cassandra server in each node  
 `$ bin/cassandra`
+
+** Or For cassandra service forground
+`$ bin/cassandra -f`
 
 * Using the Cassandra Query Language in a node  
 `$ bin/cqlsh $node IP$`
@@ -58,7 +58,27 @@
 `$ ./bin/ycsb load cassandra-cql -P workloads/workloadt  -p hosts=$node IP$ -threads $N1$ -p columnfamily=usertable -p recordcount=$N2$ ...`  
 
 * **Run benchmarks based on the database**  
-`$ ./bin/ycsb run cassandra-cql -P workloads/workloadt2  -p hosts=$node IP$ -threads $N1$ -p columnfamily=usertable -p operationcount=$N2$ ...`  
+`$ ./bin/ycsb run cassandra-cql -P workloads/workloadt2  -p hosts=$node IP$ -threads $N1$ -p columnfamily=usertable -p operationcount=$N2$ ...`
 
-## 7. Contact
-* Please email to Qiang Zhang (zhgqiang@mail.ustc.edu.cn) if you have any questions.
+* *Example:*
+`$ ./bin/ycsb load cassandra-cql -P workloads/workloada -p hosts="127.0.0.1" -s -p columnfamily=usertable -p recordcount=1000`  
+`$ ./bin/ycsb run cassandra-cql -P workloads/workloada -p hosts="127.0.0.1" -s -p columnfamily=usertable -p recordcount=1000`
+
+## 7. Build Depart for single node cluster(localhost)
+* **Make cassandra /bin/ executable**
+* `sudo chmod 777 -R ./bin/*`
+  
+* **Update cassandra.yaml file**
+  `rpc_address: localhost`
+	
+	`listener_address: localhost`
+	
+	`seed_provider:
+	  -class-name:
+	     parameters:
+	       - seeds: 127.0.0.1`
+
+
+
+## 8. Contact
+* Please email to Mahmudul Hasan (hasancsedu5@gmail.com) if you have any questions.
