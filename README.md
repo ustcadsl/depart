@@ -64,19 +64,30 @@
 `$ ./bin/ycsb load cassandra-cql -P workloads/workloada -p hosts="127.0.0.1" -s -p columnfamily=usertable -p recordcount=1000`  
 `$ ./bin/ycsb run cassandra-cql -P workloads/workloada -p hosts="127.0.0.1" -s -p columnfamily=usertable -p recordcount=1000`
 
-## 7. Build Depart for single node cluster(localhost)
+## 7. Configure Depart for single node cluster(localhost)
 * **Make cassandra /bin/ executable**
 * `sudo chmod 777 -R ./bin/*`
   
 * **Update cassandra.yaml file**
-  `rpc_address: localhost`
+`rpc_address: localhost`
 	
-	`listener_address: localhost`
+`listener_address: localhost`
+
+`seed_provider:
+  -class-name:
+     parameters:
+       - seeds: 127.0.0.1`
+
+## 8. Configure Depart for Multi node cluster
+* **Update cassandra.yaml file**
+`rpc_address: <host-ip-address>`
 	
-	`seed_provider:
-	  -class-name:
-	     parameters:
-	       - seeds: 127.0.0.1`
+`listener_address: <host-ip-address>`
+
+`seed_provider:
+  -class-name:
+     parameters:
+       - seeds: <node1-ip-address>,<node2-ip-address>`
 
 
 
