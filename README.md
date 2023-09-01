@@ -37,14 +37,23 @@
 * Compile the Cassandra package of YCSB  (Note that the maven environment need to be first installed)  
 `$ mvn -pl site.ycsb:cassandra-binding -am clean package`  
 
+## 6. Configure Depart for Multi node cluster  
+* **Update cassandra.yaml file**
+  
+`rpc_address: <host-ip-address>`  
+  
+`listener_address: <host-ip-address>`  
+  
+`seed_provider:`  
+`  -class-name:`  
+`     parameters:`  
+`       - seeds: <node1-ip-address>,<node2-ip-address>` 
 
-
-## 6. Testing the DEPART Prototype  
-* Start the Cassandra server in each node  
-`$ bin/cassandra`  
-* Or For cassandra service forground  
+## 7. Testing the DEPART Prototype  
+* Start the Cassandra server in each node(forground)  
+    
 `$ bin/cassandra -f`  
-
+  
 * Using the Cassandra Query Language in a node  
 `$ bin/cqlsh $node IP$`  
 
@@ -63,16 +72,7 @@
 * *Example:*  
 `$ ./bin/ycsb load cassandra-cql -P workloads/workloada -p hosts="127.0.0.1" -s -p columnfamily=usertable -p recordcount=1000`
 
-`$ ./bin/ycsb run cassandra-cql -P workloads/workloada -p hosts="127.0.0.1" -s -p columnfamily=usertable -p recordcount=1000`  
-
-## 7. Configure Depart for Multi node cluster  
-* **Update cassandra.yaml file**  
-`rpc_address: <host-ip-address>`  
-`listener_address: <host-ip-address>`  
-`seed_provider:`  
-`  -class-name:`  
-`     parameters:`  
-`       - seeds: <node1-ip-address>,<node2-ip-address>`  
+`$ ./bin/ycsb run cassandra-cql -P workloads/workloada -p hosts="127.0.0.1" -s -p columnfamily=usertable -p recordcount=1000`   
 
 ## 8. Contact  
 * Please email to Mahmudul Hasan (hasancsedu5@gmail.com) if you have any questions.
