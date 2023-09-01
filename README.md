@@ -49,9 +49,9 @@
 `$ bin/cqlsh $node IP$`  
 
 * Create keyspace (the database) and the table, so as to store user data  
-`$ cqlsh> create keyspace ycsb WITH REPLICATION= {'class' : 'SimpleStrategy', 'replication_factor': 3};  
+`$ cqlsh> create keyspace ycsb WITH REPLICATION= {'class' : 'SimpleStrategy', 'replication_factor': 3};`  
 
-`$ cqlsh> create table usertable ( y_id varchar primary key,field0 varchar,field1 varchar,field2 varchar,field3 varchar, field4 varchar, field5 varchar,field6 varchar,field7 varchar, field8 varchar, field9 varchar) WITH compaction={'class' : 'LeveledCompactionStrategy' };  
+`$ cqlsh> create table usertable ( y_id varchar primary key,field0 varchar,field1 varchar,field2 varchar,field3 varchar, field4 varchar, field5 varchar,field6 varchar,field7 varchar, field8 varchar, field9 varchar) WITH compaction={'class' : 'LeveledCompactionStrategy' };`  
 
 * Finally, using YCSB tool on the client node to issue requests to the cassandra cluster  
 ##
