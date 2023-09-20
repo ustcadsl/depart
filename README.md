@@ -27,38 +27,52 @@
 
 * Compile DEPART  
 `$ cd depart`  
-`$ ant clean & ant`
+`$ ant clean & ant`  
 
 
 ## 5. Build and install YCSB
 * Clone the souce code of YCSB-0.15.0 ([YCSB-0.15.0](https://github.com/brianfrankcooper/YCSB))  
-`$ git clone --recursive https://github.com/brianfrankcooper/YCSB.git`
+`$ git clone --recursive https://github.com/brianfrankcooper/YCSB.git`  
 
 * Compile the Cassandra package of YCSB  (Note that the maven environment need to be first installed)  
-`$ mvn -pl com.yahoo.ycsb:cassandra-binding -am clean package`
+`$ mvn -pl site.ycsb:cassandra-binding -am clean package`  
 
-* Using YCSB to generate workloads  
-`$ ./bin/ycsb load cassandra-cql -P workloads/workloadt  -p hosts=$node IP$ -threads $N$ ...`  
-`$ ./bin/ycsb run cassandra-cql -P workloads/workloadt2  -p hosts=$node IP$ -threads $N$ ...`
+## 6. Configure Depart for Multi node cluster  
+* **Update cassandra.yaml file**
+  
+`rpc_address: <host-ip-address>`  
+  
+`listener_address: <host-ip-address>`  
+  
+`seed_provider:`  
+`  -class-name:`  
+`     parameters:`  
+`       - seeds: <node1-ip-address>,<node2-ip-address>` 
 
-
-## 6. Testing the DEPART Prototype
-* Start the Cassandra server in each node  
-`$ bin/cassandra`
-
+## 7. Testing the DEPART Prototype  
+* Start the Cassandra server in each node(forground)  
+    
+`$ bin/cassandra -f`  
+  
 * Using the Cassandra Query Language in a node  
-`$ bin/cqlsh $node IP$`
+`$ bin/cqlsh $node IP$`  
 
 * Create keyspace (the database) and the table, so as to store user data  
 `$ cqlsh> create keyspace ycsb WITH REPLICATION= {'class' : 'SimpleStrategy', 'replication_factor': 3};`  
-`$ cqlsh> create table usertable ( y_id varchar primary key,field0 varchar,field1 varchar,field2 varchar,field3 varchar, field4 varchar, field5 varchar,field6 varchar,field7 varchar, field8 varchar, field9 varchar) WITH compaction={'class' : 'LeveledCompactionStrategy' };`
+
+`$ cqlsh> create table usertable ( y_id varchar primary key,field0 varchar,field1 varchar,field2 varchar,field3 varchar, field4 varchar, field5 varchar,field6 varchar,field7 varchar, field8 varchar, field9 varchar) WITH compaction={'class' : 'LeveledCompactionStrategy' };`  
 
 * Finally, using YCSB tool on the client node to issue requests to the cassandra cluster  
+##
 * **Load the database**  
-`$ ./bin/ycsb load cassandra-cql -P workloads/workloadt  -p hosts=$node IP$ -threads $N1$ -p columnfamily=usertable -p recordcount=$N2$ ...`  
+`$ ./bin/ycsb load cassandra-cql -P workloads/workloadt  -p hosts=$node IP$ -threads $N1$ -p columnfamily=usertable -p recordcount=$N2$ ...`
 
 * **Run benchmarks based on the database**  
 `$ ./bin/ycsb run cassandra-cql -P workloads/workloadt2  -p hosts=$node IP$ -threads $N1$ -p columnfamily=usertable -p operationcount=$N2$ ...`  
+* *Example:*  
+`$ ./bin/ycsb load cassandra-cql -P workloads/workloada -p hosts="127.0.0.1" -s -p columnfamily=usertable -p recordcount=1000`
 
-## 7. Contact
-* Please email to Qiang Zhang (zhgqiang@mail.ustc.edu.cn) if you have any questions.
+`$ ./bin/ycsb run cassandra-cql -P workloads/workloada -p hosts="127.0.0.1" -s -p columnfamily=usertable -p recordcount=1000`   
+
+## 8. Contact  
+* Please email to Mahmudul Hasan (hasancsedu5@gmail.com) if you have any questions.
